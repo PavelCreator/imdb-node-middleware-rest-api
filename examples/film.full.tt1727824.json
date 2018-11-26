@@ -1,0 +1,57 @@
+{
+    "title": "Богемна рапсодiя (2018)",
+    "runtime": "2h 14min",
+    "year": "2018",
+    "story": "    Bohemian Rhapsody is a foot-stomping celebration of Queen, their music and their extraordinary lead singer Freddie Mercury. Freddie defied stereotypes and shattered convention to become one of the most beloved entertainers on the planet. The film traces the meteoric rise of the band through their iconic songs and revolutionary sound. They reach unparalleled success, but in an unexpected turn Freddie, surrounded by darker influences, shuns Queen in pursuit of his solo career. Having suffered greatly without the collaboration of Queen, Freddie manages to reunite with his bandmates just in time for Live Aid. While bravely facing a recent AIDS diagnosis, Freddie leads the band in one of the greatest performances in the history of rock music. Queen cements a legacy that continues to inspire outsiders, dreamers and music lovers to this day.",
+    "director": [
+        "Bryan Singer"
+    ],
+    "writers": [
+        "Anthony McCarten",
+        "Peter Morgan"
+    ],
+    "stars": [
+        "Rami Malek",
+        "Lucy Boynton",
+        "Gwilym Lee"
+    ],
+    "genre": [
+        " Biography ",
+        " Drama ",
+        " Music"
+    ],
+    "rating": "8.4",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNDg2NjIxMDUyNF5BMl5BanBnXkFtZTgwMzEzNTE1NTM@._V1_QL50.jpg",
+    "related": [
+        {
+            "id": "tt1517451",
+            "poster": "https://m.media-amazon.com/images/M/MV5BMjE3MDQ0MTA3M15BMl5BanBnXkFtZTgwMDMwNDY2NTM@._V1_UY190_CR0,0,128,190_AL_.jpg",
+            "name": "Народження зiрки"
+        },
+        {
+            "id": "tt1270797",
+            "poster": "https://m.media-amazon.com/images/M/MV5BNzAwNzUzNjY4MV5BMl5BanBnXkFtZTgwMTQ5MzM0NjM@._V1_UY190_CR0,0,128,190_AL_.jpg",
+            "name": "Веном"
+        },
+        {
+            "id": "tt1502407",
+            "poster": "https://m.media-amazon.com/images/M/MV5BMmMzNjJhYjUtNzFkZi00MWQ4LWJiMDEtYWM0NTAzNGZjMTI3XkEyXkFqcGdeQXVyOTE2OTMwNDk@._V1_UY190_CR0,0,128,190_AL_.jpg",
+            "name": "Хелловiн"
+        },
+        {
+            "id": "tt1213641",
+            "poster": "https://m.media-amazon.com/images/M/MV5BMDBhOTMxN2UtYjllYS00NWNiLWE1MzAtZjg3NmExODliMDQ0XkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_UX128_CR0,0,128,190_AL_.jpg",
+            "name": "Перша людина"
+        },
+        {
+            "id": "tt4154756",
+            "poster": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_UY190_CR0,0,128,190_AL_.jpg",
+            "name": "Месники: Вiйна нескiнченностi"
+        },
+        {
+            "id": "tt1485796",
+            "poster": "https://m.media-amazon.com/images/M/MV5BMjI1NDYzNzY2Ml5BMl5BanBnXkFtZTgwODQwODczNTM@._V1_UY190_CR1,0,128,190_AL_.jpg",
+            "name": "Найвеличнiший шоумен"
+        }
+    ]
+}
