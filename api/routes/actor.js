@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const imdb = require('imdb-scrapper');
+const imdb = require('./../imdb-parser');
 
 router.get('/:name', function (request, response) {
 

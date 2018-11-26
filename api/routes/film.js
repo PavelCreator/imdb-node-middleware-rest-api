@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const imdb = require('imdb-scrapper');
+const imdb = require('./../imdb-parser');
 
 router.get('/:level/:id', function (request, response) {
 
@@ -29,17 +29,17 @@ router.get('/:level/:id', function (request, response) {
           response.status(200).json(filmData);
         })
         .catch(function (error) {
-          response.status(404).json("Error: imdb.scrapper failed. Details: " + error);
+          response.status(404).json("Error: imdb.awardsPage failed. Details: " + error);
         });
       break;
 
     case 'full':
-      imdb.scrapper(filmId)
+      imdb.getFull(filmId)
         .then(function (filmData) {
           response.status(200).json(filmData);
         })
         .catch(function (error) {
-          response.status(404).json("Error: imdb.scrapper failed. Details: " + error);
+          response.status(404).json("Error: imdb.getFull failed. Details: " + error);
         });
       break;
 
