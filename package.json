@@ -1,0 +1,23 @@
+{
+  "name": "imdb-node-middleware-rest-api",
+  "version": "1.0.0",
+  "description": "RESTful API middeware for parsing data from IMDb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PavelCreator/imdb-node-middleware-rest-api.git"
+  },
+  "author": "PavelCreator",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PavelCreator/imdb-node-middleware-rest-api/issues"
+  },
+  "homepage": "https://github.com/PavelCreator/imdb-node-middleware-rest-api#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "imdb-scrapper": "^2.0.9"
+  }
+}
