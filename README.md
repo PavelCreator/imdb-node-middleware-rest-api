@@ -11,22 +11,28 @@
 
 <h3>API Interface:</h3>
 <ul>
-<li>GET `/trend-films/:quantity` - show trending movies. 
-Example: `http://localhost:3002/trend-films/100`
+<li>
+  <p><b>GET `/trend-films/:quantity`</b> - show trending movies.</p>
+  <p>Example: `http://localhost:3002/trend-films/100`</p>
 </li>
-<li>GET `/actor/:name` - show actor information by actor name. 
-Example: `http://localhost:3002/actor/by-name/Tom Hanks`
+<li>
+  <p><b>GET `/actor/:name`</b> - show actor information by actor name.</p>
+  <p>Example: `http://localhost:3002/actor/Tom Hanks`</p>
 </li>
-<li>GET `/genre/:name/:quantity` - show trending movies in mentioned genre. 
-Example: `http://localhost:3002/genre/comedy/100`
+<li>
+  <p><b>GET `/genre/:name/:quantity`</b> - show trending movies in mentioned genre.</p>
+  <p>Example: `http://localhost:3002/genre/comedy/100`</p>
 </li>
-<li>GET `/film/basic/:id` - show basic film metadata like genre, runtime, plot etc. 
-Example: `http://localhost:3002/film/basic/tt1727824`
+<li>
+  <p><b>GET `/film/basic/:id`</b> - show basic film metadata like genre, runtime, plot etc.</p>
+  <p>Example: `http://localhost:3002/film/basic/tt1727824`</p>
 </li>
-<li>GET `/film/full/:id` - show full film metadata.
-Example: `http://localhost:3002/film/full/tt1727824`
+<li>
+  <p><b>GET `/film/full/:id`</b> - show full film metadata.</p>
+  <p>Example: `http://localhost:3002/film/full/tt1727824`</p>
 </li>
-<li>GET `/film/awards/:id` - show list of awards won by the movie. 
-Example: `http://localhost:3002/film/basic/tt1727824`
+<li>
+  <p><b>GET `/film/awards/:id`</b> - show list of awards won by the movie.</p>
+  <p>Example: `http://localhost:3002/film/basic/tt1727824`</p>
 </li>
 </ul>
