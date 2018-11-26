@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const imdb = require('imdb-scrapper');
 
-router.get('/by-name/:name', function (request, response) {
+router.get('/:name', function (request, response) {
 
   const name = request.params.name;
 
   if (!name) {
-    response.status(404).json("Error: specify actor name. For example: /actor/by-name/Tom Hanks");
+    response.status(404).json("Error: specify actor name. For example: /actor/Tom Hanks");
   }
 
   imdb.searchActor(name)

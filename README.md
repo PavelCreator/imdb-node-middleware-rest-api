@@ -14,7 +14,7 @@
 <li>GET `/trend-films/:quantity` - show trending movies. 
 Example: `http://localhost:3002/trend-films/100`
 </li>
-<li>GET `/actor/by-name/:name` - show actor information by actor name. 
+<li>GET `/actor/:name` - show actor information by actor name. 
 Example: `http://localhost:3002/actor/by-name/Tom Hanks`
 </li>
 <li>GET `/genre/:name/:quantity` - show trending movies in mentioned genre. 
