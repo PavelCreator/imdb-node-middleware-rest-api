@@ -15,10 +15,10 @@
   <p><b>GET `/charts/:type/:sort/:dir/:quantity`</b> - show trending movies.</p>
   <p>Example: `http://localhost:3002/charts/most_popular_tv/rating/desc/100`</p>
     <table>
-		<th>
-			<td>Parameter</td>
-			<td>Allowed options/format</td>
-		</th>
+		<tr>
+			<th>Parameter</th>
+			<th>Allowed options/format</th>
+		</tr>
 		<tr>
 			<td>type</td>
 			<td>'most_popular_tv', 'top_rated_tv', 'most_popular_movies', 'top_rated_movies'</td>
