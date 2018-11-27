@@ -12,7 +12,7 @@ const baseRoute = `https://www.imdb.com`;
  * @returns {Promise<Array>} array with result
  */
 '?sort=ir,desc&mode=simple&page=1'
-function getTrending(n = 50, type = "most_popular_movies", sort = 'rating', dir='desc') {
+function getTrending(n = 250, type = "most_popular_movies", sort = 'rating', dir='desc') {
   const urlType = {
     most_popular_tv: "/chart/tvmeter",
     top_rated_tv: "/chart/toptv",
@@ -21,36 +21,70 @@ function getTrending(n = 50, type = "most_popular_movies", sort = 'rating', dir=
   };
   const urlSort = {
     rating: `ir`,
-    date: 'us'
+    date: 'us',
+    place: 'rk'
   };
   const urlDir = {
     desc: `desc`,
     asc: `asc`
   }
+  switch (type) {
+    case `most_popular_tv`:
+    case `most_popular_movies`:
+      nMax = 100;
+      break;
+
+    case `top_rated_tv`:
+    case `top_rated_movies`:
+      nMax = 250;
+      break;
+  }
+
   return request(`${baseRoute}${urlType[type]}?sort=${urlSort[sort]},${urlDir[dir]}`)
     .then(data => {
       const $ = cheerio.load(data);
       let trending = [];
       let i = 1;
-      n = n > 250 ? 250 : n;
+      n = n > nMax ? nMax : n;
       while (i <= n) {
         try {
-          trending.push({
-            name: $(`.lister-list > tr:nth-child(${i}) > titleColumn > a`)
+          let queryStart = `.lister-list > tr:nth-child(${i})`;
+          let query;
+
+          const film = {
+            name: $(`${queryStart} > .titleColumn > a`)
               .text(),
-            poster: $(`.lister-list > tr:nth-child(${i}) > td:nth-child(1) > a:nth-child(6) > img:nth-child(1)`)[0]
-              .attribs.src.split("@._")[0] + "@._V1_QL50.jpg",
-            id: $(`.lister-list > tr:nth-child(${i}) > td:nth-child(1) > a:nth-child(6)`)[0]
-              .attribs.href.split("/")[2],
-            rating: $(`.lister-list > tr:nth-child(${i}) > .imdbRating > strong`)
-              .text(),
-            usersRatingBased: $(`.lister-list > tr:nth-child(${i}) > .imdbRating > strong`)
-              .attr(`title`).split('based on ')[1].split(' user ratings')[0],
-            year: $(`.lister-list > tr:nth-child(${i}) > .titleColumn > .secondaryInfo`)
-              .text().trim().replace("(", "").replace(")", ""),
-            stars: $(`.lister-list > tr:nth-child(${i}) > .titleColumn > a`)
-              .attr(`title`),
-          });
+            poster: $(`${queryStart} > .posterColumn > a > img`)
+              .attr(`src`).split(`@._`)[0] + `@._V1_QL50.jpg`,
+            id: $(`${queryStart} > .posterColumn > a`)
+              .attr(`href`).split(`/`)[2],
+            year: $(`${queryStart} > .titleColumn > .secondaryInfo`)
+              .text().trim().replace(`(`, ``).replace(`)`, ``),
+            stars: $(`${queryStart} > .titleColumn > a`)
+              .attr(`title`)
+          }
+
+          switch (type) {
+            case `most_popular_tv`:
+            case `most_popular_movies`:
+              film.place = $(`${queryStart} > .titleColumn > .velocity`)
+              .text().split(`\n`)[0].trim();
+              break;
+
+            case `top_rated_tv`:
+            case `top_rated_movies`:
+              film.place = $(`${queryStart} > .titleColumn`)
+                .text().split(`\n`)[1].trim().replace(`.`, ``);
+              break;
+          }
+          if (query = $(`${queryStart} > .imdbRating > strong`).attr(`title`)) {
+            film.usersRatingBased = query.split(`based on `)[1].split(` user ratings`)[0]
+          }
+          if (query = $(`${queryStart} > .imdbRating > strong`).text()){
+            film.rating = query;
+          }
+
+          trending.push(film);
           i++;
         } catch (e) {
           i++;
