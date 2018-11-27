@@ -19,7 +19,7 @@ const {
   getStars,
   getSimilarMoviesById
 } = require("./lib/data");
-const { getTrending, getTrendingGenre } = require("./lib/trending"); // provide trending functions
+const { getFilms, getTrendingGenre } = require("./lib/trending"); // provide trending functions
 const { search, searchActor, simpleSearch } = require("./lib/search"); // provide search functions
 const { getUpcoming } = require("./lib/upcoming"); // provide upcoming movies
 const { getActorData } = require("./lib/actor");
@@ -152,7 +152,7 @@ function getActor(id) {
 module.exports = {
   scrapper,
   getTrendingGenre,
-  getTrending,
+  getFilms,
   search,
   getFull,
   getStarsByBornDay,

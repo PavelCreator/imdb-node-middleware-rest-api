@@ -4,15 +4,14 @@ const { ifError } = require("./error");
 const baseRoute = `https://www.imdb.com`;
 
 /**
- * getTrending - the function provide trending based on type=['movie'.'tv']
+ * getFilms - the function provide trending based on type=['movie'.'tv']
  *
  * @param {number} [n=50]       number of result
  * @param {string} [type=movie] type of movie or tv
  *
  * @returns {Promise<Array>} array with result
  */
-'?sort=ir,desc&mode=simple&page=1'
-function getTrending(n = 250, type = "most_popular_movies", sort = 'rating', dir='desc') {
+function getFilms(type, sort, dir, quantity) {
   const urlType = {
     most_popular_tv: "/chart/tvmeter",
     top_rated_tv: "/chart/toptv",
@@ -31,12 +30,12 @@ function getTrending(n = 250, type = "most_popular_movies", sort = 'rating', dir
   switch (type) {
     case `most_popular_tv`:
     case `most_popular_movies`:
-      nMax = 100;
+      quantityMax = 100;
       break;
 
     case `top_rated_tv`:
     case `top_rated_movies`:
-      nMax = 250;
+      quantityMax = 250;
       break;
   }
 
@@ -45,8 +44,8 @@ function getTrending(n = 250, type = "most_popular_movies", sort = 'rating', dir
       const $ = cheerio.load(data);
       let trending = [];
       let i = 1;
-      n = n > nMax ? nMax : n;
-      while (i <= n) {
+      quantity = quantity > quantityMax ? quantityMax : quantity;
+      while (i <= quantity) {
         try {
           let queryStart = `.lister-list > tr:nth-child(${i})`;
           let query;
@@ -133,4 +132,4 @@ function getTrendingGenre(genre = "action", n = 7) {
     })
     .catch(ifError);
 }
-module.exports = { getTrending, getTrendingGenre };
+module.exports = { getFilms, getTrendingGenre };

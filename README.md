@@ -12,8 +12,30 @@
 <h3>API Interface:</h3>
 <ul>
 <li>
-  <p><b>GET `/trend-films/:quantity`</b> - show trending movies.</p>
-  <p>Example: `http://localhost:3002/trend-films/100`</p>
+  <p><b>GET `/charts/:type/:sort/:dir/:quantity`</b> - show trending movies.</p>
+  <p>Example: `http://localhost:3002/charts/most_popular_tv/rating/desc/100`</p>
+    <table>
+		<th>
+			<td>Parameter</td>
+			<td>Allowed options/format</td>
+		</th>
+		<tr>
+			<td>type</td>
+			<td>'most_popular_tv', 'top_rated_tv', 'most_popular_movies', 'top_rated_movies'</td>
+		</tr>
+		<tr>
+			<td>sort</td>
+			<td>'rating', 'date', 'place'</td>
+		</tr>
+		<tr>
+			<td>dir</td>
+			<td>'asc', 'desc'</td>
+		</tr>
+		<tr>
+			<td>quantity</td>
+			<td>type: integer</td>
+		</tr>
+  </table>
 </li>
 <li>
   <p><b>GET `/actor/:name`</b> - show actor information by actor name.</p>
