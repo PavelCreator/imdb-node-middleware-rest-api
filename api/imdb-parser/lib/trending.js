@@ -36,26 +36,20 @@ function getTrending(n = 50, type = "most_popular_movies", sort = 'rating', dir=
       while (i <= n) {
         try {
           trending.push({
-            name: $(
-              `.lister-list > tr:nth-child(${i}) > td:nth-child(2) > a:nth-child(1)`
-            ).text(),
-            poster:
-              $(
-                `.lister-list > tr:nth-child(${i}) > td:nth-child(1) > a:nth-child(6) > img:nth-child(1)`
-              )[0] ?
-              $(
-                `.lister-list > tr:nth-child(${i}) > td:nth-child(1) > a:nth-child(6) > img:nth-child(1)`
-              )[0].attribs.src.split("@._")[0] + "@._V1_QL50.jpg":'',
-            id:
-              $(
-                `.lister-list > tr:nth-child(${i}) > td:nth-child(1) > a:nth-child(6)`
-              )[0] ?
-              $(
-                `.lister-list > tr:nth-child(${i}) > td:nth-child(1) > a:nth-child(6)`
-              )[0].attribs.href.split("/")[2] : '',
-            rating: $(
-              `.lister-list > tr:nth-child(${i}) > td:nth-child(3) > strong`
-            ).text()
+            name: $(`.lister-list > tr:nth-child(${i}) > titleColumn > a`)
+              .text(),
+            poster: $(`.lister-list > tr:nth-child(${i}) > td:nth-child(1) > a:nth-child(6) > img:nth-child(1)`)[0]
+              .attribs.src.split("@._")[0] + "@._V1_QL50.jpg",
+            id: $(`.lister-list > tr:nth-child(${i}) > td:nth-child(1) > a:nth-child(6)`)[0]
+              .attribs.href.split("/")[2],
+            rating: $(`.lister-list > tr:nth-child(${i}) > .imdbRating > strong`)
+              .text(),
+            usersRatingBased: $(`.lister-list > tr:nth-child(${i}) > .imdbRating > strong`)
+              .attr(`title`).split('based on ')[1].split(' user ratings')[0],
+            year: $(`.lister-list > tr:nth-child(${i}) > .titleColumn > .secondaryInfo`)
+              .text().trim().replace("(", "").replace(")", ""),
+            stars: $(`.lister-list > tr:nth-child(${i}) > .titleColumn > a`)
+              .attr(`title`),
           });
           i++;
         } catch (e) {
