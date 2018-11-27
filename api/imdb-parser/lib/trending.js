@@ -23,11 +23,11 @@ function getTrending(n = 50, type = "most_popular_movies", sort = 'rating', dir=
     rating: `ir`,
     date: 'us'
   };
-  const urlSortDir = {
+  const urlDir = {
     desc: `desc`,
     asc: `asc`
   }
-  return request(`${baseRoute}${urlType[type]}?sort=${urlSort[sort]},${urlSortDir[dir]}`)
+  return request(`${baseRoute}${urlType[type]}?sort=${urlSort[sort]},${urlDir[dir]}`)
     .then(data => {
       const $ = cheerio.load(data);
       let trending = [];

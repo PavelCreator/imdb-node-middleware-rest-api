@@ -1,5 +1,4 @@
 var express = require('express');
-var imdb = require('imdb-scrapper');
 
 var app = express();
 var filmRoutes = require('./api/routes/film')

@@ -4,7 +4,8 @@
   "description": "RESTful API middeware for parsing data from IMDb",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,9 @@
   },
   "homepage": "https://github.com/PavelCreator/imdb-node-middleware-rest-api#readme",
   "dependencies": {
-    "express": "^4.16.4",
     "cheerio": "^1.0.0-rc.2",
-    "d3-time-format": "^2.1.3"
+    "d3-time-format": "^2.1.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.7"
   }
 }
