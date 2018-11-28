@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const imdbParser = require('./../imdb-parser');
+const imdbParser = require('../imdb-parser/index');
 
 router.get('/:type/:sort/:dir/:quantity', function (request, response) {
 

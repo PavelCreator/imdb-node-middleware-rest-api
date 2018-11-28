@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const imdb = require('./../imdb-parser');
+const imdb = require('../imdb-parser/index');
 
 router.get('/:level/:id', function (request, response) {
 
