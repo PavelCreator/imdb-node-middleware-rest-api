@@ -2,7 +2,7 @@ const chartsAllowedTypes = {
     type: ['most_popular_tv', 'top_rated_tv', 'most_popular_movies', 'top_rated_movies'],
     sort: ['rating', 'date', 'place'],
     dir: ['asc', 'desc']
-}
+};
 
 interface ChartsOptions {
     type: 'most_popular_tv' | 'top_rated_tv' | 'most_popular_movies' | 'top_rated_movies',
@@ -11,7 +11,7 @@ interface ChartsOptions {
     quantity: number
 }
 
-interface ChartFilm {
+interface ChartVideo {
     name: string,
     poster: string,
     id: number,
@@ -22,4 +22,4 @@ interface ChartFilm {
     rating?: string
 }
 
-export { chartsAllowedTypes, ChartsOptions, ChartFilm };
+export { chartsAllowedTypes, ChartsOptions, ChartVideo };
