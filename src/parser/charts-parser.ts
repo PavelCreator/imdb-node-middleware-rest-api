@@ -1,5 +1,5 @@
-const request = require('../utils/request');
 const cheerio = require('cheerio');
+import {ajax} from '../utils/ajax';
 import {ChartVideo, ChartsOptions} from '../interfaces/charts-interfaces';
 import {errorHandler} from '../utils/error-handler';
 import {routes} from '../const/routes';
@@ -66,10 +66,10 @@ export const chartsParser = {
         quantity = limitMaxQuantity(quantity, type);
 
         //imdb request
-        return request(
+        return ajax(
             `${routes.imdb}${routes.charts.type[type]}?sort=${routes.charts.sort[sort]},${routes.charts.dir[dir]}`
         )
-            .then((data: string) => {
+            .then((data: any) => {
 
                 //parsing html
                 const $ = cheerio.load(data);

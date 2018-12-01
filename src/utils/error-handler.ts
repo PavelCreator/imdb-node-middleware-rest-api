@@ -1,5 +1,3 @@
-function errorHandler(err: any) {
+export const errorHandler = (err: any) => {
     console.log(err);
 }
-
-export {errorHandler};

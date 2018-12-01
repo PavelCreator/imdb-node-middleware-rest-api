@@ -9,10 +9,7 @@ const protocols: any = {
     "http:": http
 };
 
-// cb must be function
-// this is the example for supporting both promise and callback
-
-const ajax = (url: string, cb: any):Promise<Object> => {
+export const ajax = (url: string):Promise<Object> => {
     let responseData = "";
     return new Promise((resolve, reject) => {
         const parsedUrl = urlLib.parse(url, true);
@@ -25,21 +22,12 @@ const ajax = (url: string, cb: any):Promise<Object> => {
                 responseData = responseData + data;
             });
             res.on("end", () => {
-                if (cb && typeof cb === "function") {
-                    cb(null, responseData);
-                } else {
-                    resolve(responseData);
-                }
+                resolve(responseData);
             });
         });
         req.on("error", (err: any) => {
-            if (cb && typeof cb === "function") {
-                cb(err, null);
-            } else {
-                reject(err);
-            }
+            reject(err);
         });
         req.end();
     });
 };
-module.exports = ajax;
