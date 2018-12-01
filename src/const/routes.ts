@@ -16,5 +16,6 @@ export const routes = {
             desc: `desc`,
             asc: `asc`
         }
-    }
+    },
+    boxoffice: '/chart/boxoffice'
 };

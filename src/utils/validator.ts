@@ -1,5 +1,4 @@
 import express from 'express';
-import {chartsAllowedTypes} from "../interfaces/charts-interfaces";
 import {errorCodes} from "../const/error-codes";
 
 export const validator = {
