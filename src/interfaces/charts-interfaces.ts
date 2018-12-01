@@ -1,3 +1,9 @@
+const chartsAllowedTypes = {
+    type: ['most_popular_tv', 'top_rated_tv', 'most_popular_movies', 'top_rated_movies'],
+    sort: ['rating', 'date', 'place'],
+    dir: ['asc', 'desc']
+}
+
 interface ChartsOptions {
     type: 'most_popular_tv' | 'top_rated_tv' | 'most_popular_movies' | 'top_rated_movies',
     sort: 'rating' | 'date' | 'place',
@@ -16,4 +22,4 @@ interface ChartFilm {
     rating?: string
 }
 
-export { ChartsOptions, ChartFilm };
+export { chartsAllowedTypes, ChartsOptions, ChartFilm };
