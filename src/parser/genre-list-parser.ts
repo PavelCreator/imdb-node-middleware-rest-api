@@ -23,7 +23,6 @@ export const genreListParser = {
                 for (let i = 1; i < quantity; i++) {
                     try {
                         const genre = genreQuery.eq(i).text().trim();
-                        console.log('genre =', genre);
                         genres.push(genre);
                     } catch (errorHandler) {
                     }

@@ -41,6 +41,48 @@ export const validator = {
         } else {
             return true;
         }
+    },
+
+    isRequired: (
+        options: any,
+        field: string,
+        res: express.Response
+    ) => {
+        if (!options[field]) {
+            res
+                .status(404)
+                .json({
+                        "error": errorCodes.requiredParamMissing,
+                        "invalid parameter": field
+                    }
+                );
+            return false;
+        } else {
+            return true;
+        }
+    },
+
+    isType: (
+        options: any,
+        field: string,
+        type: string,
+        res: express.Response
+    ) => {
+        let expectedType = typeof options[field];
+        if (expectedType !== type) {
+            res
+                .status(404)
+                .json({
+                        "error": errorCodes.wrongParamType,
+                        "invalid parameter": field,
+                        "used type": type,
+                        "expected type": expectedType
+                    }
+                );
+            return false;
+        } else {
+            return true;
+        }
     }
 
 };

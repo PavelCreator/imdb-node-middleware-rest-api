@@ -1,7 +1,7 @@
 import express = require('express');
 const app = express();
 
-/*const filmRoutes = require('./api/film')*/
+import { router as videoRoutes } from './routes/video-routes'
 import { router as chartsRoutes } from './routes/charts-routes';
 import { router as genreListRoutes } from './routes/genre-list-routes';
 /*const actorRoutes = require('./api/actor')
@@ -19,7 +19,7 @@ app.use(
     }
 );
 
-/*app.use('/film', filmRoutes);*/
+app.use('/video', videoRoutes);
 app.use('/charts', chartsRoutes);
 app.use('/genre-list', genreListRoutes);
 /*app.use('/actor', actorRoutes);*/
