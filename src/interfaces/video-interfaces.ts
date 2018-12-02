@@ -7,4 +7,18 @@ interface VideoOptions {
     level: 'full'
 }
 
-export {videoAllowedTypes, VideoOptions};
+interface Video {
+    title: string,
+    rating: string,
+    poster: string,
+    runtime: string,
+    year: number,
+    story: string,
+    genres: string[],
+    director: string[],
+    writers: string[],
+    stars: string[],
+    similar: []
+}
+
+export {videoAllowedTypes, VideoOptions, Video};
