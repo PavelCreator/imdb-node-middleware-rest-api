@@ -16,7 +16,7 @@ function getFilms(type, sort, dir, quantity) {
     most_popular_tv: "/chart/tvmeter",
     top_rated_tv: "/chart/toptv",
     most_popular_movies: "/chart/moviemeter",
-    top_rated_movies:  + "/chart/top"
+    top_rated_movies: "/chart/top"
   };
   const urlSort = {
     rating: `ir`,
@@ -38,6 +38,10 @@ function getFilms(type, sort, dir, quantity) {
       quantityMax = 250;
       break;
   }
+
+  console.log('type =', type);
+  console.log('urlType[type] =', urlType[type]);
+  console.log('${baseRoute}${urlType[type]}?sort=${urlSort[sort]},${urlDir[dir]} =', `${baseRoute}${urlType[type]}?sort=${urlSort[sort]},${urlDir[dir]}`);
 
   return request(`${baseRoute}${urlType[type]}?sort=${urlSort[sort]},${urlDir[dir]}`)
     .then(data => {
